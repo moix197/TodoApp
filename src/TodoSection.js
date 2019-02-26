@@ -60,7 +60,21 @@ class TodoSection extends React.Component {
       : this.checkDesc;
 
     this.props.sortBy(function(a, b) {
-      return orientToCheck(a.time, b.time);
+      return orientToCheck(a.name, b.name);
+    });
+
+    this.setState({
+      orderedTimeAsc: !this.state.orderedTimeAsc
+    });
+  };
+
+  sortByImportance = () => {
+    let orientToCheck = this.state.orderedTimeAsc
+      ? this.checkAsc
+      : this.checkDesc;
+
+    this.props.sortBy(function(a, b) {
+      return orientToCheck(a.importance, b.importance);
     });
 
     this.setState({
@@ -83,7 +97,7 @@ class TodoSection extends React.Component {
             <div onClick={this.sortByName}>name</div>
             <div onClick={this.sortByTime}>time</div>
             <div onClick={this.sortByDate}>date</div>
-            <div>importance</div>
+            <div onClick={this.sortByImportance}>importance</div>
           </div>
           {this.props.todos.map(singleTodoItem => {
             return (

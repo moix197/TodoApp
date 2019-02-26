@@ -79,7 +79,8 @@ class AddTodo extends React.Component {
                   value={this.state.importance}
                   placeholder="Your To do importante goes here"
                 >
-                  <option value="low">Low</option>
+                  <option />
+                  <option value="minor">Minor</option>
                   <option value="medium">Medium</option>
                   <option value="high">High</option>
                 </select>
