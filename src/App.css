@@ -1,3 +1,169 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+
+body {
+  font-family: "Roboto Mono", monospace;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  padding: 10px;
+  color: #fff;
+  background-color: #282c34;
+  border: none;
+  text-transform: uppercase;
+  font-family: "Roboto Mono", monospace;
+  cursor: pointer;
+  border: 1px solid #8d8d8d;
+}
+
+select,
+textarea,
+input {
+  -ms-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 10px;
+  outline: none;
+  font-family: "Roboto Mono", monospace;
+}
+
+.paddingSm {
+  padding: 20px 0;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.font-bolded {
+  font-weight: bold;
+}
+
+.displayRow {
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.displayColumn {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.todosTable {
+  position: relative;
+  background-color: #282c34;
+  color: #fff;
+  border: 1px solid #8d8d8d;
+}
+
+.outerSingleTodoHeader {
+  cursor: pointer;
+}
+
+.outerSingleTodo {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #8d8d8d;
+  transition: transform 0.5s;
+}
+
+.outerSingleTodo:hover {
+  transform: translateX(15.3%);
+}
+
+.outerSingleTodo div {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #282c34;
+  align-items: center;
+  width: 100px;
+  height: 50px;
+  padding: 15px 10px;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.outerSingleTodo button {
+  position: absolute;
+  background-color: #943131;
+  height: calc(100% + 1px);
+  left: 0%;
+  border-bottom: 1px solid #8d8d8d;
+  transition: transform 0.5s;
+  font-size: 13px;
+}
+
+.outerSingleTodo:hover button {
+  transform: translateX(-204.3%);
+}
+
+.outerSingleTodo span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 15%;
+  height: 100%;
+  left: 0;
+  background-color: #164894;
+  border-right: 1px #8d8d8d solid;
+  border-bottom: 1px #8d8d8d solid;
+  transition: transform 0.5s;
+  font-size: 13px;
+}
+
+.outerSingleTodoHeader:hover {
+  transform: none;
+}
+
+.outerSingleTodo:hover span {
+  transform: translateX(-100.3%);
+}
+
+.outerForm {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  max-width: 600px;
+}
+
+.formGroup {
+  display: flex;
+  width: 100%;
+}
+
+.formGroup div {
+  display: flex;
+  flex-flow: column;
+  margin: 1px;
+  width: calc(50% - 2px);
+}
+
 .App {
   text-align: center;
 }
@@ -10,7 +176,6 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
