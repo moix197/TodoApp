@@ -19,8 +19,34 @@ class AddTodo extends React.Component {
     });
   };
 
+  validateForm = (...aryToValidate) => {
+    let validated = true;
+
+    for (let i of aryToValidate) {
+      if (validated === true && i === "") {
+        validated = false;
+      }
+    }
+
+    return validated;
+  };
+
   handleAddNewTodoSubmit = event => {
     event.preventDefault();
+
+    let isValidated = this.validateForm(
+      this.state.name,
+      this.state.time,
+      this.state.date,
+      this.state.importance,
+      this.state.description
+    );
+
+    if (!isValidated) {
+      alert("Please fill all the fields");
+      return;
+    }
+
     this.props.addNewTodo(
       this.state.name,
       this.state.time,

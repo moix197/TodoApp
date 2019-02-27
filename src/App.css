@@ -1,9 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
 
-body {
-  font-family: "Roboto Mono", monospace;
-}
-
+/* Making a little reset for the necesary items*/
 p,
 h1,
 h2,
@@ -17,6 +14,11 @@ h5 {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* setting wide selectors */
+body {
+  font-family: "Roboto Mono", monospace;
 }
 
 button {
@@ -41,6 +43,8 @@ input {
   outline: none;
   font-family: "Roboto Mono", monospace;
 }
+
+/*Setting basic general classes*/
 
 .paddingSm {
   padding: 20px 0;
@@ -70,11 +74,18 @@ input {
   align-items: center;
 }
 
+/*Setting specific classes*/
+
 .todosTable {
   position: relative;
+  max-width: 480px;
   background-color: #282c34;
   color: #fff;
   border: 1px solid #8d8d8d;
+}
+
+.todosTable div {
+  max-width: 480px;
 }
 
 .outerSingleTodoHeader {
@@ -82,12 +93,13 @@ input {
 }
 
 .outerSingleTodo {
+  cursor: pointer;
+  background-color: #282c34;
   position: relative;
   width: 100%;
   max-width: 600px;
   display: flex;
   justify-content: center;
-  border-bottom: 1px solid #8d8d8d;
   transition: transform 0.5s;
 }
 
@@ -111,9 +123,9 @@ input {
 .outerSingleTodo button {
   position: absolute;
   background-color: #943131;
-  height: calc(100% + 1px);
+  height: 100%;
   left: 0%;
-  border-bottom: 1px solid #8d8d8d;
+  border: none;
   transition: transform 0.5s;
   font-size: 13px;
 }
@@ -131,18 +143,40 @@ input {
   height: 100%;
   left: 0;
   background-color: #164894;
-  border-right: 1px #8d8d8d solid;
-  border-bottom: 1px #8d8d8d solid;
   transition: transform 0.5s;
   font-size: 13px;
+}
+
+.outerSingleTodo:hover span {
+  transform: translateX(-100.3%);
 }
 
 .outerSingleTodoHeader:hover {
   transform: none;
 }
 
-.outerSingleTodo:hover span {
-  transform: translateX(-100.3%);
+.outerTodoDescription {
+  width: calc(100% - 60px);
+  text-align: left;
+  max-height: 0;
+  padding: 0 30px;
+  border-bottom: 1px #8d8d8d solid;
+  transition: max-height 0.5s, padding 0.5s, width 0.5s;
+}
+
+.outerTodoDescription div {
+  overflow: hidden;
+}
+
+.activeDescription .outerTodoDescription {
+  cursor: pointer;
+  max-height: 100px;
+  padding: 20px 10px;
+  width: calc(100% - 60px);
+}
+
+.activeDescription .outerSingleTodo {
+  border-bottom: 1px solid #282c34;
 }
 
 .outerForm {
@@ -168,12 +202,6 @@ input {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
 .App-header {
   background-color: #282c34;
   display: flex;
@@ -182,17 +210,4 @@ input {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

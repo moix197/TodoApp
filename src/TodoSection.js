@@ -83,6 +83,25 @@ class TodoSection extends React.Component {
   };
 
   render() {
+    let todoHead;
+
+    if (this.props.todos.length === 0) {
+      todoHead = (
+        <div className="outerSingleTodo outerSingleTodoHeader text-uppercase">
+          <div>There's no to dos</div>
+        </div>
+      );
+    } else {
+      todoHead = (
+        <div className="outerSingleTodo outerSingleTodoHeader text-uppercase font-bolded">
+          <div onClick={this.sortByName}>name</div>
+          <div onClick={this.sortByTime}>time</div>
+          <div onClick={this.sortByDate}>date</div>
+          <div onClick={this.sortByImportance}>importance</div>
+        </div>
+      );
+    }
+
     return (
       <div className="displayColumn">
         <div>
@@ -93,12 +112,7 @@ class TodoSection extends React.Component {
           <p>&nbsp;</p>
         </div>
         <div className="displayColumn todosTable">
-          <div className="outerSingleTodo outerSingleTodoHeader text-uppercase font-bolded">
-            <div onClick={this.sortByName}>name</div>
-            <div onClick={this.sortByTime}>time</div>
-            <div onClick={this.sortByDate}>date</div>
-            <div onClick={this.sortByImportance}>importance</div>
-          </div>
+          {todoHead}
           {this.props.todos.map(singleTodoItem => {
             return (
               <SingleTodo
@@ -108,6 +122,7 @@ class TodoSection extends React.Component {
                 time={singleTodoItem.time}
                 date={singleTodoItem.date}
                 importance={singleTodoItem.importance}
+                description={singleTodoItem.description}
                 removeTodo={this.props.removeTodo}
               />
             );

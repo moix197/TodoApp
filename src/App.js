@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import { Router, Link } from "@reach/router";
 import TodoSection from "./TodoSection";
-import TodoDetails from "./TodoDetails";
+//uncomment the bottom import to open the details in a different tab
+//import TodoDetails from "./TodoDetails";
 
 class App extends Component {
   constructor(props) {
@@ -27,9 +28,7 @@ class App extends Component {
 
   addNewTodo = (name, time, date, importance, description) => {
     let newItem = {
-      id: this.state.todos[this.state.todos.length - 1]
-        ? this.state.todos[this.state.todos.length - 1].id + 1
-        : 1,
+      id: this.state.todos.length + 1,
       name,
       time,
       date,
@@ -93,7 +92,7 @@ class App extends Component {
           {
             //Uncomment the line on bottom if you want to show the details
             //in a different page
-            <TodoDetails path="/details/:id" todos={this.state.todos} />
+            //<TodoDetails path="/details/:id" todos={this.state.todos} />
           }
         </Router>
       </div>
