@@ -1,6 +1,4 @@
 import React from "react";
-//uncomment the bottom import to open the details in a different page
-//import { Link } from "@reach/router";
 
 class SingleTodo extends React.Component {
   constructor(props) {
@@ -23,8 +21,6 @@ class SingleTodo extends React.Component {
 
   render() {
     return (
-      //uncomment the bottom Link tags to open the details in a different page
-      //<Link to={`/details/${this.props.id}`}>
       <div
         className={`displayColumn ${this.state.openedDescription &&
           "activeDescription"}`}
@@ -48,8 +44,6 @@ class SingleTodo extends React.Component {
           <div>{this.props.description}</div>
         </div>
       </div>
-
-      //</Link>
     );
   }
 }

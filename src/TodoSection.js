@@ -8,7 +8,8 @@ class TodoSection extends React.Component {
     this.state = {
       orderedDateAsc: false,
       orderedNameAsc: false,
-      orderedTimeAsc: false
+      orderedTimeAsc: false,
+      orderedImportanceAsc: false
     };
   }
 
@@ -78,7 +79,7 @@ class TodoSection extends React.Component {
     });
 
     this.setState({
-      orderedTimeAsc: !this.state.orderedTimeAsc
+      orderedTimeAsc: !this.state.orderedImportanceAsc
     });
   };
 

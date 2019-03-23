@@ -26,6 +26,7 @@ class TodoDetails extends React.Component {
             description
           });
         }
+        return null;
       }
     );
   }

@@ -1,8 +1,8 @@
 {
-  "name": "todo_app",
+  "name": "TodoApp",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://moix197.github.io/simpleTodoApp",
+  "homepage": "https://moix197.github.io/TodoApp",
   "dependencies": {
     "@reach/router": "^1.2.1",
     "react": "^16.8.3",

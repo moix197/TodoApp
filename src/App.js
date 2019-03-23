@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Router, Link } from "@reach/router";
 import TodoSection from "./TodoSection";
-//uncomment the bottom import to open the details in a different tab
-//import TodoDetails from "./TodoDetails";
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +16,7 @@ class App extends Component {
   }
 
   getTodos = () => {
-    let localStorageTodos = JSON.parse(localStorage.getItem("todos"));
+    let localStorageTodos = JSON.parse(localStorage.getItem("todos")) || [];
 
     this.setState({
       todos: localStorageTodos
@@ -77,24 +74,15 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header text-uppercase paddingSm">
-          <Link to="/ ">
-            <h1>To do app</h1>
-          </Link>
+          <h1>To do app</h1>
         </header>
-        <Router>
-          <TodoSection
-            path="/"
-            todos={this.state.todos}
-            addNewTodo={this.addNewTodo}
-            removeTodo={this.removeTodo}
-            sortBy={this.sortBy}
-          />
-          {
-            //Uncomment the line on bottom if you want to show the details
-            //in a different page
-            //<TodoDetails path="/details/:id" todos={this.state.todos} />
-          }
-        </Router>
+        <TodoSection
+          path="/"
+          todos={this.state.todos}
+          addNewTodo={this.addNewTodo}
+          removeTodo={this.removeTodo}
+          sortBy={this.sortBy}
+        />
       </div>
     );
   }
